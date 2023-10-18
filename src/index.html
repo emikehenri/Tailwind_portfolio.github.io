@@ -1,0 +1,77 @@
+<!-- Tailwind CLI buidl process npx tailwindcss -i ./src/input.css -o ./dist/output.css --watch -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel = "stylesheet" href ="/dist/output.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <style>
+        :root {
+            --text-font: 'Roboto', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-slate-950">
+    <header>
+        <nav class="bg-slate-950 flex flex-row justify-between px-2 py-3">
+            <!-- Logo design -->
+            <div class="ml-2 flex flex-row place-items-center">
+                <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-9 h-9 text-amber-300">
+                    <path fill-rule="evenodd" d="M3 6a3 3 0 013-3h12a3 3 0 013 3v12a3 3 0 01-3 3H6a3 3 0 01-3-3V6zm14.25 6a.75.75 0 01-.22.53l-2.25 2.25a.75.75 0 11-1.06-1.06L15.44 12l-1.72-1.72a.75.75 0 111.06-1.06l2.25 2.25c.141.14.22.331.22.53zm-10.28-.53a.75.75 0 000 1.06l2.25 2.25a.75.75 0 101.06-1.06L8.56 12l1.72-1.72a.75.75 0 10-1.06-1.06l-2.25 2.25z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+                  <span class="text-2xl font-bold text-amber-400 contrast-100 md:text-3xl" style = "font-family: var(--text-font);">Mike<span class="text-amber-400" style = "font-family: var(--text-font);">Edralin</span></span>
+             </div>
+             <!-- hamburger menu -->
+             <div >
+                <button id ="butt" class="mt-1 px-1 mr-2  place-items-end mx-1 my-1 rounded-md text-white font-black md:hidden">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-9 h-9">
+                    <path fill-rule="evenodd" d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z" clip-rule="evenodd" />
+                  </svg>
+                </button>
+              </div>
+              <ul id = "list" class= 'hidden md:flex flex-row place-items-center space-x-4 px-6 py-2'>
+                <li class="text-2xl text-white  font-lighter border-1 bg-blue-500 px-3 py-2 rounded-md"><a href="#" style ="font-family:var(--text-font)">Home</a></li>
+                <li class="text-2xl text-white font-lighter  hover:text-amber-300  cursor-pointer"><a href="#">Projects</a style ="font-family:var(--text-font)"></li>
+                <li class="text-2xl text-white font-lighter hover:text-amber-300 cursor-pointer"><a href="#">About Me</a style ="font-family:var(--text-font)"></li>
+                <li class="text-2xl text-white font-lighter hover:text-amber-300 cursor-pointer"><a href="#">Contact</a style ="font-family:var(--text-font)"></li>
+              </ul>
+              <!-- script for the hamburger menu -->
+              <script type='text/javascript'>
+              let show = document.querySelector('#butt');
+              let container = null;
+              
+              show.addEventListener('click', (e) => {
+                e.preventDefault();
+              
+                if(!container){
+                  container = document.createElement('div');
+                  container.classList.add('bg-slate-950');
+                  container.innerHTML = `
+                    <ul id = "closemenu" class= 'flex flex-col place-items-center space-y-7 py-6 md:hidden'>
+                      <li class="text-2xl text-white font-lighter  hover:text-amber-300  cursor-pointer"><a href="#">Home</a></li>
+                      <li class="text-2xl text-white font-lighter  hover:text-amber-300  cursor-pointer"><a href="#">Projects</a></li>
+                      <li class="text-2xl text-white font-lighter hover:text-amber-300 cursor-pointer"><a href="#">About Me</a></li>
+                      <li class="text-2xl text-white font-lighter hover:text-amber-300 cursor-pointer"><a href="#">Contact</a></li>
+                    </ul>
+                  `;
+                  document.body.appendChild(container);
+                }else if(container){
+                    document.body.removeChild(container)
+                    container=null;
+                }
+                    
+              });
+              
+              </script>
+        </nav>
+        <!-- hero section -->
+    </header>
+   
+</body> 
+</html>
